@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--TODO Tambahkan <layout><data></data></layout>
+karena akan menggunakan DataBinding-->
+<layout>
+    <data>
+        <variable
+            name="post"
+            type="com.nandaadisaputra.retrofit.model.PostModel" />
+    </data>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@{post.title}"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        tools:text="Title" />
+
+    <TextView
+        android:id="@+id/tv_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{post.body}"
+        android:textSize="18sp"
+        tools:text="Body" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/black" />
+</LinearLayout>
+</layout>
