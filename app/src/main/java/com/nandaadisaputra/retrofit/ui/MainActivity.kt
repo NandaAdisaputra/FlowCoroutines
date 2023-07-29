@@ -27,22 +27,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.lifecycleOwner = this
-        setupUI()
         initData()
         setupObserver()
     }
-    private fun setupUI() {
-        binding.rvPost.layoutManager = LinearLayoutManager(this)
-        adapter = PostAdapter()
-        binding.rvPost.addItemDecoration(
-            DividerItemDecoration(
-                binding.rvPost.context,
-                ( binding.rvPost.layoutManager as LinearLayoutManager).orientation
-            )
-        )
-        binding.rvPost.adapter = adapter
-    }
     private fun initData() {
+        adapter = PostAdapter()
         adapter.setOnClickItem { name ->
             Toast.makeText(this, "The Title is ${name.title}", Toast.LENGTH_SHORT).show()
         }
@@ -56,17 +45,17 @@ class MainActivity : AppCompatActivity() {
                 viewModel.uiState.collect {
                     when (it) {
                         is UiState.Success -> {
-                            binding.progressBar.visibility = View.GONE
+                            binding.progressBar = false
                             adapter.submitList(it.data)
-                            binding.rvPost.visibility = View.VISIBLE
+                            binding.recyclerView = true
                         }
                         is UiState.Loading -> {
-                            binding.progressBar.visibility = View.VISIBLE
-                            binding.rvPost.visibility = View.GONE
+                            binding.progressBar = true
+                            binding.recyclerView = false
                         }
                         is UiState.Error -> {
                             //Handle Error
-                            binding.progressBar.visibility = View.GONE
+                            binding.progressBar = false
                             Toast.makeText(
                                 this@MainActivity,
                                 it.message,

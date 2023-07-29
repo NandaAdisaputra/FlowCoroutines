@@ -19,9 +19,7 @@ class MainViewModel @Inject constructor(
     private val apiHelper: ApiHelper
 ) : ViewModel() {
     private val _uiState = MutableStateFlow<UiState<List<PostModel>>>(UiState.Loading)
-
     val uiState: StateFlow<UiState<List<PostModel>>> = _uiState
-
     fun getBody() {
         viewModelScope.launch(Dispatchers.Main) {
             _uiState.value = UiState.Loading

@@ -12,30 +12,28 @@ karena akan menggunakan DataBinding-->
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp"
+    android:layout_margin="@dimen/_4sdp"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@{post.title}"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="@dimen/_20ssp"
         tools:text="Title" />
 
     <TextView
-        android:id="@+id/tv_body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@{post.body}"
-        android:textSize="18sp"
+        android:textSize="@dimen/_18ssp"
         tools:text="Body" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="@dimen/_2sdp"
         android:background="@color/black" />
 </LinearLayout>
 </layout>
