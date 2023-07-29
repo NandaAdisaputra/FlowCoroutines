@@ -42,7 +42,7 @@ class DataModule {
         return okHttpClient.build()
     }
     @Provides
-    fun provideApiHelper(apiHelper: ApiHelperImpl): ApiHelper = apiHelper
+    fun provideApiHelper(apiHelperImpl: ApiHelperImpl): ApiHelper = apiHelperImpl
 
     @Provides
     fun provideApiService(okHttpClient: OkHttpClient): ApiService {
