@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.nandaadisaputra.retrofit.R
 import com.nandaadisaputra.retrofit.databinding.PostItemLayoutBinding
-import com.nandaadisaputra.retrofit.model.PostModel
+import com.nandaadisaputra.retrofit.room.entity.Body
 
-class PostAdapter : ListAdapter<PostModel, PostAdapter.ItemViewHolder>(DiffUtilCallback()) {
+class PostAdapter : ListAdapter<Body, PostAdapter.ItemViewHolder>(DiffUtilCallback()) {
 
-    private var onItemClick: ((PostModel) -> Unit)? = null
+    private var onItemClick: ((Body) -> Unit)? = null
 
-    fun setOnClickItem(onClickItem: (PostModel) -> Unit) {
+    fun setOnClickItem(onClickItem: (Body) -> Unit) {
         this.onItemClick = onClickItem
     }
 
@@ -40,8 +40,8 @@ class PostAdapter : ListAdapter<PostModel, PostAdapter.ItemViewHolder>(DiffUtilC
 
     inner class ItemViewHolder(private val binding: PostItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(postModel: PostModel) {
-            binding.post = postModel
+        fun bind(body: Body) {
+            binding.post = body
             binding.executePendingBindings()
         }
     }

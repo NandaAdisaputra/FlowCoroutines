@@ -5,7 +5,7 @@ karena akan menggunakan DataBinding-->
     <data>
         <variable
             name="post"
-            type="com.nandaadisaputra.retrofit.model.PostModel" />
+            type="com.nandaadisaputra.retrofit.room.entity.Body" />
     </data>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

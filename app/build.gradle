@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -49,6 +50,7 @@ dependencies {
     //Hilt
     implementation 'com.google.dagger:hilt-android:2.46'
     implementation 'androidx.navigation:navigation-runtime-ktx:2.6.0'
+    implementation 'androidx.room:room-common:2.5.2'
     kapt 'com.google.dagger:hilt-compiler:2.46'
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
@@ -61,6 +63,10 @@ dependencies {
     //dimens
     implementation 'com.intuit.ssp:ssp-android:1.1.0'
     implementation 'com.intuit.sdp:sdp-android:1.1.0'
+    //room
+    implementation "androidx.room:room-runtime:2.5.2"
+    kapt "androidx.room:room-compiler:2.5.2"
+    implementation "androidx.room:room-ktx:2.5.2"
 
 
     testImplementation 'junit:junit:4.13.2'
